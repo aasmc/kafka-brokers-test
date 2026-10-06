@@ -1,0 +1,43 @@
+2026-10-06T19:12:41 EXPERIMENT target=kafka1 mode=kill baseline=60s down=180s recovery=90s
+2026-10-06T19:12:47 LOAD_STARTED pid=24843
+2026-10-06T19:13:47 BROKER_DOWN kafka1 (kill)
+2026-10-06T19:14:07 SNAPSHOT 02-down-15s
+2026-10-06T19:14:57 SNAPSHOT 03-down-60s
+2026-10-06T19:17:02 SNAPSHOT 04-down-end
+2026-10-06T19:17:02 BROKER_UP kafka1
+2026-10-06T19:18:37 SNAPSHOT 05-after-recovery
+2026-10-06T19:18:37 LOAD_STOPPED
+2026-10-06T19:18:43 BROKER_LOGS_COLLECTED
+====================================================================================================
+EXPERIMENT SUMMARY
+  19:12:41  EXPERIMENT target=kafka1 mode=kill baseline=60s down=180s recovery=90s
+  19:12:47  LOAD_STARTED pid=24843
+  19:13:47  BROKER_DOWN kafka1 (kill)
+  19:14:07  SNAPSHOT 02-down-15s
+  19:14:57  SNAPSHOT 03-down-60s
+  19:17:02  SNAPSHOT 04-down-end
+  19:17:02  BROKER_UP kafka1
+  19:18:37  SNAPSHOT 05-after-recovery
+  19:18:37  LOAD_STOPPED
+  19:18:43  BROKER_LOGS_COLLECTED
+
+CONSUMER topic_consumer: sent=338 consumed=338 unique=338 missing=0 duplicates=0
+  baseline     consumed=  57  max gap between records=   2.0s
+  broker down  consumed= 188  max gap between records=   8.0s
+  recovery     consumed=  93  max gap between records=   2.0s
+  longest pause: 8.0s (19:13:47 -> 19:13:55); max end-to-end lag=7.0s
+
+CONSUMER topic_consumer_2: sent=338 consumed=338 unique=338 missing=0 duplicates=0
+  baseline     consumed=  57  max gap between records=   2.0s
+  broker down  consumed= 188  max gap between records=   7.0s
+  recovery     consumed=  93  max gap between records=   2.0s
+  longest pause: 7.0s (19:13:47 -> 19:13:54); max end-to-end lag=6.0s
+
+PRODUCER topic_producer (GET /api/v1/test): requests=338 PRODUCED=338 PRODUCE_FAILED=0
+  baseline     requests=  57 codes={'200': 57} max latency=0.02s
+  broker down  requests= 188 codes={'200': 188} max latency=7.51s
+  recovery     requests=  93 codes={'200': 93} max latency=0.01s
+
+TOP WARN/ERROR messages in app.log during the experiment:
+     17  WARN  NetworkClient: [Consumer clientId=consumer-kafka-test-service-consumer-N-N, groupId=kafka-test-service-consumer-N] Connection to node N (localhost/N.N.N.N:N) could n
+     11  WARN  NetworkClient: [Producer clientId=kafka-test-service-producer-N] Connection to node N (localhost/N.N.N.N:N) could not be established. Node may not be available.

@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+app:
+  topics:
+    producer: topic_producer
+    consumer: topic_consumer
+    consumer2: topic_consumer_2
+
+spring:
+  application:
+    name: kafka-test-service
+  kafka:
+    # Same list for producer and both consumers, as in the incident:
+    # first two hosts are decommissioned (do not exist), the last three are real brokers.
+    bootstrap-servers:
+      - kafka-old-1.decommissioned.test:9092
+      - kafka-old-2.decommissioned.test:9092
+      - localhost:9092
+      - localhost:9093
+      - localhost:9094
+    producer:
+      acks: all
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+
+logging:
+  file:
+    # relative to the working dir; scripts/start-app.sh starts the app from the repo root
+    name: logs/app.log
+  level:
+    root: INFO
