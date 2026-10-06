@@ -1,0 +1,11 @@
+# Эксперимент 1: 3 брокера, кворум из 3 голосов.
+# Один и тот же bootstrap-список для продюсера и обоих консюмеров, как в инциденте:
+# первые два хоста выведены из эксплуатации (не существуют), последние три — реальные брокеры.
+spring:
+  kafka:
+    bootstrap-servers:
+      - kafka-old-1.decommissioned.test:9092
+      - kafka-old-2.decommissioned.test:9092
+      - localhost:9092
+      - localhost:9093
+      - localhost:9094

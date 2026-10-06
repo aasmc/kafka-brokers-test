@@ -1,18 +1,28 @@
 #!/usr/bin/env python3
-"""Builds the experiment summary from logs/app.log, logs/load/* and logs/experiment/events.log."""
+"""Строит сводку эксперимента по логам: <каталог>/app.log, load/* и experiment/events.log.
+
+Использование: analyze.py [каталог логов]   (по умолчанию logs/exp1)
+Что считает:
+  * по каждому консюмеру: сколько отправлено и получено, потери, дубли, паузы по фазам, задержку доставки;
+  * по продюсеру (GET /api/v1/test): HTTP-коды и задержки по фазам, окно ошибок, типы ошибок;
+  * самые частые WARN/ERROR в логе сервиса за время эксперимента.
+"""
 import re
+import sys
 from collections import defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-LOGS = ROOT / "logs"
+LOGS = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "logs/exp1"
 
 
 def ts(s):
+    """Время из начала строки лога (до секунд, без часового пояса)."""
     return datetime.fromisoformat(s[:19])
 
 
+# Шаг 1. Читаем журнал событий и делим эксперимент на фазы: до отказа, отказ, восстановление.
 events = []
 for line in (LOGS / "experiment/events.log").read_text().splitlines():
     t, rest = line.split(" ", 1)
@@ -25,22 +35,26 @@ phases = [("baseline", start, down), ("broker down", down, up), ("recovery", up,
 
 
 def phase_of(t):
+    """Фаза, в которую попадает момент t (или None, если вне эксперимента)."""
     for name, a, b in phases:
         if a <= t < b:
             return name
     return None
 
 
-# --- app log
-consumed = defaultdict(list)          # topic -> [(time, seq)]
-produced, produce_failed = [], []     # [(time, tookMs, error)]
-errors_by_kind = defaultdict(int)
+# Шаг 2. Разбираем лог сервиса: полученные сообщения (CONSUMED), успешные и неуспешные отправки
+#        (PRODUCED / PRODUCE_FAILED), а также все WARN/ERROR.
+consumed = defaultdict(list)          # топик -> [(время, seq)]
+produced, produce_failed = [], []     # [(время, tookMs)], [(время, ошибка)]
+errors_by_kind = defaultdict(int)     # (уровень, логгер, шаблон сообщения) -> количество
+# формат строки Spring Boot: <время> <уровень> <pid> --- [<приложение>] [<поток>] <логгер> : <сообщение>
 line_re = re.compile(r"^(\S+)\s+(\w+)\s+\d+ --- \[[^\]]*\] \[([^\]]*)\]\s+(\S+)\s*: (.*)$")
 for line in (LOGS / "app.log").read_text(errors="replace").splitlines():
     m = line_re.match(line)
     if not m:
         continue
     t, level, thread, logger, msg = ts(m.group(1)), m.group(2), m.group(3), m.group(4), m.group(5)
+    # учитываем только строки за время эксперимента
     if not (start <= t <= stop + timedelta(seconds=10)):
         continue
     if msg.startswith("CONSUMED"):
@@ -52,9 +66,11 @@ for line in (LOGS / "app.log").read_text(errors="replace").splitlines():
     elif msg.startswith("PRODUCE_FAILED"):
         produce_failed.append((t, re.search(r"error=(.*)", msg).group(1)))
     if level in ("WARN", "ERROR"):
-        kind = re.sub(r"\d+", "N", msg)[:150]
+        # шаблон сообщения: убираем payload, ключ и числа, чтобы одинаковые ошибки сгруппировались
+        kind = re.sub(r"\d+", "N", re.sub(r"payload='[^']*'|key=\S+ ", "", msg))[:150]
         errors_by_kind[(level, logger.split(".")[-1], kind)] += 1
 
+# Шаг 3. Заголовок сводки: хронология событий.
 out = []
 p = out.append
 p("=" * 100)
@@ -63,14 +79,16 @@ for t, e in events:
     p(f"  {t:%H:%M:%S}  {e}")
 p("")
 
-# --- consumers
+# Шаг 4. Консюмеры: сравниваем отправленное нагрузкой (sent-*.log) с полученным сервисом.
 for topic in ("topic_consumer", "topic_consumer_2"):
     sent = []
     sent_file = LOGS / f"load/sent-{topic}.log"
     if sent_file.exists():
         for line in sent_file.read_text().splitlines():
             m = re.search(r"seq=(\d+) sent_at=(\S+)", line)
-            sent.append((ts(m.group(2)), int(m.group(1))))
+            # нагрузка дописывает в файл, поэтому берём только отправки текущего запуска
+            if m and start <= ts(m.group(2)) <= stop:
+                sent.append((ts(m.group(2)), int(m.group(1))))
     recs = consumed[topic]
     seqs = [s for _, s in recs if s is not None]
     sent_seqs = {s for _, s in sent}
@@ -84,7 +102,7 @@ for topic in ("topic_consumer", "topic_consumer_2"):
         in_phase = [t for t, _ in recs if a <= t < b]
         gaps = [(in_phase[i] - in_phase[i - 1]).total_seconds() for i in range(1, len(in_phase))]
         p(f"  {name:12s} consumed={len(in_phase):4d}  max gap between records={max(gaps, default=0):6.1f}s")
-    # longest consumption pause and end-to-end lag (sent_at -> consumed)
+    # самая долгая пауза между полученными сообщениями и максимальная задержка «отправлено -> получено»
     sent_at = {s: t for t, s in sent}
     lags = [(t - sent_at[s]).total_seconds() for t, s in recs if s in sent_at]
     times = [t for t, _ in recs]
@@ -95,11 +113,12 @@ for topic in ("topic_consumer", "topic_consumer_2"):
           f"max end-to-end lag={max(lags, default=0):.1f}s")
     p("")
 
-# --- producer via HTTP
+# Шаг 5. Продюсер: результаты HTTP-запросов нагрузки по фазам и типы ошибок отправки.
 http = []
 for line in (LOGS / "load/http.log").read_text().splitlines():
     m = re.match(r"(\S+) seq=(\d+) http=(\d+) ([\d.]+)", line)
-    if m:
+    # как и для sent-*.log: только запросы текущего запуска
+    if m and start <= ts(m.group(1)) <= stop:
         http.append((ts(m.group(1)), m.group(3), float(m.group(4))))
 p(f"PRODUCER topic_producer (GET /api/v1/test): requests={len(http)} "
   f"PRODUCED={len(produced)} PRODUCE_FAILED={len(produce_failed)}")
@@ -120,6 +139,7 @@ for k, v in fail_kinds.items():
     p(f"  failure x{v}: {k}")
 p("")
 
+# Шаг 6. Самые частые WARN/ERROR и печать сводки.
 p("TOP WARN/ERROR messages in app.log during the experiment:")
 for (level, logger, kind), n in sorted(errors_by_kind.items(), key=lambda x: -x[1])[:25]:
     p(f"  {n:5d}  {level:5s} {logger}: {kind}")

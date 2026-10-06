@@ -1,33 +1,36 @@
 server:
   port: 8080
 
+# Имена топиков: продюсер пишет в producer, консюмеры читают consumer и consumer2.
 app:
   topics:
     producer: topic_producer
     consumer: topic_consumer
     consumer2: topic_consumer_2
+  # Id групп консюмеров. scripts/stand-up.sh может переопределить их (APP_GROUPS_CONSUMER1/2), чтобы
+  # координатор каждой группы оказался на нужном брокере.
+  groups:
+    consumer1: kafka-test-service-consumer-1
+    consumer2: kafka-test-service-consumer-2
 
 spring:
   application:
     name: kafka-test-service
   kafka:
-    # Same list for producer and both consumers, as in the incident:
-    # first two hosts are decommissioned (do not exist), the last three are real brokers.
-    bootstrap-servers:
-      - kafka-old-1.decommissioned.test:9092
-      - kafka-old-2.decommissioned.test:9092
-      - localhost:9092
-      - localhost:9093
-      - localhost:9094
+    # По умолчанию только реальные брокеры. Профили экспериментов (application-exp*.yml) переопределяют список.
+    bootstrap-servers: localhost:9092,localhost:9093,localhost:9094
+    # acks=all: подтверждение после записи на все реплики из ISR (не меньше min.insync.replicas)
     producer:
       acks: all
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    # earliest: новая группа читает топик с начала, чтобы не пропустить сообщения нагрузки
     consumer:
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
+# Actuator: health используется скриптами для проверки, что сервис поднялся.
 management:
   endpoints:
     web:
@@ -36,7 +39,7 @@ management:
 
 logging:
   file:
-    # relative to the working dir; scripts/start-app.sh starts the app from the repo root
-    name: logs/app.log
+    # путь относительно рабочего каталога; scripts/start-app.sh задаёт APP_LOG_FILE=logs/<профиль>/app.log
+    name: ${APP_LOG_FILE:logs/app.log}
   level:
     root: INFO

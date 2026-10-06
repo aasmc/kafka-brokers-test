@@ -1,0 +1,4 @@
+2026-10-06T19:29:04 load: started, duration=600s, logs in /Users/aasmc/Desktop/SberID/kafka-brokers-test/logs/exp2/load
+2026-10-06T19:34:34 load: stopping
+scripts/load.sh: line 38: 47796 Terminated: 15          sleep 1
+2026-10-06T19:34:34 load: stopped

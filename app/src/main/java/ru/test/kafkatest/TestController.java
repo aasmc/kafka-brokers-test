@@ -33,8 +33,8 @@ public class TestController {
 	}
 
 	/**
-	 * Sends a random message to the producer topic and waits for the broker ack, so that
-	 * a broken producer is visible to the caller as a non-2xx response.
+	 * Отправляет случайное сообщение в топик продюсера и ждёт подтверждения брокера (не дольше 10 секунд),
+	 * чтобы неработающий продюсер был виден вызывающему как ответ не 2xx (503).
 	 */
 	@GetMapping("/test")
 	public ResponseEntity<Map<String, Object>> test() {

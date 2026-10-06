@@ -1,0 +1,11 @@
+# Эксперимент 2: 3 живых брокера, в кворуме объявлено 5 голосов.
+# Выведенные хосты — те же узлы, что до сих пор числятся голосами 4 и 5 в кворуме KRaft
+# (kafka-old-1, kafka-old-2, см. docker-compose.exp2-quorum5.yml); их не существует.
+spring:
+  kafka:
+    bootstrap-servers:
+      - kafka-old-1:9092
+      - kafka-old-2:9092
+      - localhost:9092
+      - localhost:9093
+      - localhost:9094

@@ -1,11 +1,14 @@
-# Kafka 3.9.0 cluster (Confluent Platform 7.9.0), KRaft combined mode:
-# every node is both broker and controller; quorum = 3 voters.
+# Кластер Kafka 3.9.0 (Confluent Platform 7.9.0) в режиме KRaft combined:
+# каждый узел одновременно брокер и контроллер; кворум из 3 голосов.
+# Базовый стенд эксперимента 1. Для эксперимента 2 поверх него накладывается docker-compose.exp2-quorum5.yml.
 #
-# Listeners:
-#   INTERNAL   kafkaN:29092      - inter-broker traffic and the kafka-tools container
-#   CONTROLLER kafkaN:29093      - KRaft quorum
-#   EXTERNAL   localhost:909[2-4] - the Spring Boot app running on the host
+# Listener'ы:
+#   INTERNAL   kafkaN:29092       - трафик между брокерами и контейнер kafka-tools
+#   CONTROLLER kafkaN:29093       - кворум KRaft
+#   EXTERNAL   localhost:909[2-4] - Spring Boot сервис, запущенный на хосте
 
+# Общие настройки контейнеров брокеров: образ, без автоперезапуска (падение брокера — часть эксперимента)
+# и healthcheck по доступности API брокера.
 x-kafka-common: &kafka-common
   image: confluentinc/cp-kafka:7.9.0
   restart: "no"
@@ -15,6 +18,9 @@ x-kafka-common: &kafka-common
     timeout: 10s
     retries: 30
 
+# Общие переменные окружения брокеров (KAFKA_* превращаются в настройки server.properties).
+# Важное для экспериментов: RF=3 и min.insync.replicas=2 по умолчанию, автосоздание топиков выключено,
+# unclean leader election выключен (лидером может стать только реплика из ISR).
 x-kafka-env: &kafka-env
   CLUSTER_ID: "MkU3OEVBNTcwNTJENDM2Qk"
   KAFKA_PROCESS_ROLES: "broker,controller"
@@ -67,8 +73,8 @@ services:
       KAFKA_NODE_ID: "3"
       KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka3:29092,CONTROLLER://kafka3:29093,EXTERNAL://localhost:9094"
 
-  # Not a broker: CLI container that creates topics on start and is then used
-  # by the load script for console producers and diagnostics.
+  # Не брокер: контейнер с CLI-утилитами Kafka. При старте создаёт топики (scripts/create-topics.sh),
+  # затем используется скриптом нагрузки (console producer) и для снимков состояния кластера.
   kafka-tools:
     image: confluentinc/cp-kafka:7.9.0
     container_name: kafka-tools

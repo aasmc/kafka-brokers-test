@@ -1,0 +1,71 @@
+2026-10-06T19:28:58 EXPERIMENT exp=exp2 (3 brokers, quorum 3/5 (2 decommissioned voters), kill kafka1) target=kafka1 mode=kill baseline=60s down=180s recovery=90s
+2026-10-06T19:29:03 LOAD_STARTED pid=39952
+2026-10-06T19:30:04 BROKER_DOWN kafka1 (kill)
+2026-10-06T19:30:19 SNAPSHOT 02-down-15s
+2026-10-06T19:31:04 SNAPSHOT 03-down-60s
+scripts/snapshot.sh: line 21: G2: unbound variable
+2026-10-06T19:33:04 SNAPSHOT 04-down-end
+2026-10-06T19:33:04 BROKER_UP kafka1
+2026-10-06T19:34:34 SNAPSHOT 05-after-recovery
+2026-10-06T19:34:34 LOAD_STOPPED
+2026-10-06T19:34:39 BROKER_LOGS_COLLECTED
+====================================================================================================
+EXPERIMENT SUMMARY
+  19:28:58  EXPERIMENT exp=exp2 (3 brokers, quorum 3/5 (2 decommissioned voters), kill kafka1) target=kafka1 mode=kill baseline=60s down=180s recovery=90s
+  19:29:03  LOAD_STARTED pid=39952
+  19:30:04  BROKER_DOWN kafka1 (kill)
+  19:30:19  SNAPSHOT 02-down-15s
+  19:31:04  SNAPSHOT 03-down-60s
+  19:33:04  SNAPSHOT 04-down-end
+  19:33:04  BROKER_UP kafka1
+  19:34:34  SNAPSHOT 05-after-recovery
+  19:34:34  LOAD_STOPPED
+  19:34:39  BROKER_LOGS_COLLECTED
+
+CONSUMER topic_consumer: sent=319 consumed=202 unique=202 missing=117 duplicates=0
+  missing seqs (first 20): [59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78]
+  baseline     consumed=  58  max gap between records=   2.0s
+  broker down  consumed=   0  max gap between records=   0.0s
+  recovery     consumed= 144  max gap between records=   2.0s
+  longest pause: 193.0s (19:30:03 -> 19:33:16); max end-to-end lag=71.0s
+
+CONSUMER topic_consumer_2: sent=319 consumed=319 unique=319 missing=0 duplicates=0
+  baseline     consumed=  58  max gap between records=   2.0s
+  broker down  consumed=   0  max gap between records=   0.0s
+  recovery     consumed= 261  max gap between records=   2.0s
+  longest pause: 184.0s (19:30:03 -> 19:33:07); max end-to-end lag=183.0s
+
+PRODUCER topic_producer (GET /api/v1/test): requests=319 PRODUCED=142 PRODUCE_FAILED=177
+  baseline     requests=  58 codes={'200': 58} max latency=0.16s
+  broker down  requests= 174 codes={'503': 174} max latency=10.02s
+  recovery     requests=  87 codes={'503': 3, '200': 84} max latency=10.01s
+  non-200 window: 19:30:04 -> 19:33:06 (177 requests)
+  failure x167: java.util.concurrent.TimeoutException: null
+  failure x10: org.springframework.kafka.core.KafkaProducerException: Failed to send
+
+TOP WARN/ERROR messages in app.log during the experiment:
+    253  WARN  NetworkClient: [Consumer clientId=consumer-kafka-test-service-consumer-N-N-N, groupId=kafka-test-service-consumer-N-N] Connection to node N (localhost/N.N.N.N:N) cou
+    193  WARN  NetworkClient: [Producer clientId=kafka-test-service-producer-N] Connection to node N (localhost/N.N.N.N:N) could not be established. Node may not be available.
+      2  WARN  ClientUtils: Couldn't resolve server kafka-old-N:N from bootstrap.servers as DNS resolution failed for kafka-old-N
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=NeNfd-aN-Ndf-aNc-fNffNaeN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=cabNf-N-N-Nbbc-NbNdNfeN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=bNdNa-N-NaN-bNbN-eNbNcN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=cNbNcNa-Ndeb-NeNa-Nf-NeNecdeNdNc error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=edNdN-N-NabN-aNaN-NccNaNd error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=edcNacNf-NaNb-N-aNf-decaeNdNeN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=N-Naef-NbN-bN-NddcdNdbN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=dNeNad-N-NcN-addN-dbcNbbaNcNe error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=bbcfabeN-N-N-aNcN-NeNdabNe error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=NdNeNb-Nfb-Nee-abNc-cNcbNaNeN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=eNdNeN-NdN-Nff-NfN-aNeN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=fNfN-NcN-NeN-Ncf-NcNbNedee error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=NfNdNe-cNbN-NcN-NeN-NbafNeeN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=NfdNaaff-bNb-N-aNcd-cNaNdNfaN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=fNdNeN-NaN-Naea-bNdN-eaNeNcNfN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=NfN-eNdb-Nafc-bN-NbNeNbNecNb error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=NdNa-N-NfN-NbdN-NbafNdNbN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=NfaNbN-N-Nfc-NdN-aNbNaN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=NebdaN-NaN-NeN-N-NcNcbN error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=bdNfN-cNc-Nb-NeN-NdNfa error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=cNcNe-Neb-Nba-aeN-NfNad error=java.util.concurrent.TimeoutException: null
+      1  ERROR TestController: PRODUCE_FAILED topic=topic_producer tookMs=N key=dfdNdcac-feaN-NdN-NcN-NdaNbaN error=java.util.concurrent.TimeoutException: null

@@ -1,20 +1,282 @@
 # Стенд: отказ брокера Kafka при «мёртвых» хостах в bootstrap-servers
 
-- `docker-compose.yml` — 3 брокера `confluentinc/cp-kafka:7.9.0` (Kafka 3.9.0) в KRaft-кластере и контейнер `kafka-tools`, который создаёт топики
-- `app/` — Spring Boot 4.1.1 / Java 25: 1 продюсер (`topic_producer`, `GET /api/v1/test`), 2 консюмера (`topic_consumer`, `topic_consumer_2`), в bootstrap 5 хостов, из них 2 несуществующих
-- `scripts/` — запуск, нагрузка, эксперимент, анализ
-- `EXPERIMENT-RESULTS.md` — результаты; `kafka-incident-analysis.md` — разбор инцидента
+Стенд воспроизводит инцидент: сервис (Spring Boot, продюсер и два консюмера) работает с кластером Kafka,
+в `bootstrap-servers` которого остались адреса двух давно выведенных серверов. Падает ещё один брокер.
+Продюсер и один консюмер перестают работать, второй консюмер внешне продолжает работать.
 
-## Запуск
+На стенде два эксперимента. Брокеры, топики, сервис и нагрузка в них одинаковые, отличается только состав
+кворума контроллеров KRaft:
+
+| Профиль | Что моделирует | Кворум | Итог |
+|---|---|---|---|
+| `exp1` | выведенные серверы корректно удалены из кластера | 3 голоса, живы 3 | падение одного брокера проходит почти незаметно (пауза ~8 с) |
+| `exp2` | выведенные серверы остались в кворуме контроллеров | 5 голосов, живы 3 | после падения одного брокера кворум теряется: инцидент воспроизводится |
+
+Подробные результаты — в [EXPERIMENT-RESULTS.md](EXPERIMENT-RESULTS.md), разбор инцидента — в
+[kafka-incident-analysis.md](kafka-incident-analysis.md).
+
+---
+
+## 1. Требования
+
+Работает на macOS и Linux, на Windows — через WSL2.
+
+| Что | Зачем | Проверка |
+|---|---|---|
+| Docker с Compose v2 | кластер Kafka в контейнерах | `docker compose version` |
+| JDK 25 или новее | сборка и запуск сервиса | `java -version` |
+| `bash`, `curl`, `python3` | скрипты, нагрузка, анализ логов | `python3 --version` |
+| свободные порты 8080, 9092, 9093, 9094 | сервис и брокеры | `lsof -i :8080` должен ничего не вывести |
+| ~3 ГБ памяти для Docker | 4 контейнера Kafka | Docker Desktop → Settings → Resources |
+
+Maven ставить не нужно: сборка идёт через Maven Wrapper (`app/mvnw`), при первом запуске он скачает Maven и
+зависимости (нужен интернет). Образ `confluentinc/cp-kafka:7.9.0` (~1 ГБ) тоже скачается при первом запуске.
+
+**Как находится Java.** Скрипты ищут JDK 25+ сами в таком порядке: `JAVA_HOME` → `/usr/libexec/java_home -v 25+`
+(только macOS) → `java` из `PATH`. JDK с версией ниже 25 пропускаются. Указать конкретный JDK можно так:
 ```bash
-docker compose up -d                 # кластер + создание топиков
-scripts/start-app.sh                 # сборка и запуск сервиса (Java 25), лог в logs/app.log
-curl localhost:8080/api/v1/test      # проверка
+JAVA_HOME=/path/to/jdk-25 EXP=exp1 scripts/stand-up.sh
+```
 
-DURATION=600 scripts/load.sh         # только нагрузка: до Ctrl+C, но не дольше 10 минут
-MODE=kill scripts/experiment.sh      # нагрузка + отказ kafka1 + снапшоты + сводка (MODE=kill|stop|pause)
-python3 scripts/analyze.py           # повторно построить сводку по логам
-scripts/snapshot.sh my-label         # лидеры, ISR, кворум и координаторы групп
+---
 
-scripts/stop-app.sh && docker compose down -v
+## 2. Структура проекта
+
+```
+docker-compose.yml               базовый стенд: 3 узла Kafka 3.9.0 (KRaft, кворум 3/3) + контейнер kafka-tools
+docker-compose.exp2-quorum5.yml  дополнение для exp2: кворум из 5 голосов, 2 «выведенных» узла не запущены
+experiments/exp1.env, exp2.env   профили экспериментов (что поднимать, кого и как ронять, тайминги)
+app/                             сервис: Spring Boot 4.1.1, Java 25
+  src/main/resources/application-exp1.yml, application-exp2.yml   Spring-профили (bootstrap-списки)
+scripts/
+  stand-up.sh     пересоздать стенд профиля и запустить сервис
+  experiment.sh   эксперимент целиком: нагрузка → отказ брокера → восстановление → сводка
+  load.sh         только нагрузка (для ручных экспериментов)
+  snapshot.sh     снимок состояния кластера: лидеры, ISR, кворум, координаторы групп
+  analyze.py      сводка по логам эксперимента
+  start-app.sh, stop-app.sh      запуск и остановка сервиса
+  create-topics.sh, pick-groups.py, common.sh   вспомогательные, вызываются другими скриптами
+logs/<профиль>/                  логи и результаты каждого эксперимента
+```
+
+Какой эксперимент запускать, задаёт переменная `EXP` перед командой: `EXP=exp1 …` или `EXP=exp2 …`.
+Без неё используется `exp1`.
+
+**Что входит в стенд:**
+- брокеры `kafka1`, `kafka2`, `kafka3` (с хоста доступны как `localhost:9092`, `9093`, `9094`);
+- топики `topic_producer`, `topic_consumer`, `topic_consumer_2`: 1 партиция, 3 реплики, `min.insync.replicas=2`.
+  Лидеры назначены заранее: `topic_producer` и `topic_consumer` на `kafka1`, `topic_consumer_2` на `kafka2`;
+- сервис на `localhost:8080`: `GET /api/v1/test` отправляет сообщение в `topic_producer`, два консюмера читают
+  `topic_consumer` и `topic_consumer_2`. В bootstrap-списке 5 адресов, первые два не существуют;
+- нагрузка: по 1 сообщению в секунду в каждый топик консюмеров и 1 запрос в секунду на `/api/v1/test`.
+
+Во всех экспериментах роняется `kafka1`: третий хост в bootstrap-списке, лидер `topic_producer` и
+`topic_consumer`, на нём же координатор группы консюмера `topic_consumer`.
+
+---
+
+## 3. Эксперимент 1: кворум 3 из 3
+
+Проверяет, переживает ли сервис падение одного брокера, когда выведенные серверы корректно удалены из кластера.
+
+### Шаг 1. Поднять стенд
+```bash
+cd <каталог репозитория>
+EXP=exp1 scripts/stand-up.sh
+```
+Скрипт удаляет предыдущий стенд, если он был, поднимает 3 брокера, создаёт топики, собирает и запускает сервис.
+Это занимает 1–2 минуты, первый запуск дольше из-за скачивания образа и зависимостей.
+
+В конце должно быть:
+```
+== группы: APP_GROUPS_CONSUMER1=kafka-test-service-consumer-1-N APP_GROUPS_CONSUMER2=kafka-test-service-consumer-2-N
+Java 25: /path/to/jdk
+pid сервиса 12345, профиль exp1, лог .../logs/exp1/app.log
+сервис поднят (UP)
+```
+
+### Шаг 2. Проверить, что всё работает
+```bash
+curl localhost:8080/api/v1/test
+```
+Ожидаемый ответ: `{"status":"OK","topic":"topic_producer","partition":0,"offset":0,...}`.
+
+Можно посмотреть состояние кластера:
+```bash
+EXP=exp1 scripts/snapshot.sh check
+```
+Ожидаемо: `topic_producer` и `topic_consumer` с `Leader: 1`, `topic_consumer_2` с `Leader: 2`, `Isr: 1,2,3` у всех.
+
+### Шаг 3. Запустить эксперимент
+```bash
+EXP=exp1 scripts/experiment.sh
+```
+Эксперимент идёт ~6 минут, терминал всё это время занят. Ход эксперимента:
+
+| Время | Что происходит |
+|---|---|
+| 0:00 | снимок «до», старт нагрузки |
+| 1:00 | `docker kill kafka1`: аварийное падение брокера |
+| 1:15, 2:00, 4:00 | снимки во время отказа |
+| 4:00 | `docker start kafka1`: брокер возвращается |
+| 5:30 | снимок «после», нагрузка останавливается, собираются логи брокеров, печатается сводка |
+
+Прервать эксперимент: `Ctrl+C`. Нагрузка может остаться работать в фоне, тогда остановите её командой
+`pkill -f scripts/load.sh`, а упавший брокер верните командой `docker start kafka1`.
+
+### Шаг 4. Посмотреть результат
+Сводка печатается в конце и сохраняется в `logs/exp1/experiment/summary.txt`. Ожидаемый результат:
+```
+CONSUMER topic_consumer:   sent=… consumed=… missing=0 duplicates=0, longest pause ~8s
+CONSUMER topic_consumer_2: sent=… consumed=… missing=0 duplicates=0, longest pause ~7s
+PRODUCER topic_producer:   все коды 200, max latency ~7.5s
+```
+То есть потерь нет, есть только пауза на ~8 с, пока контроллер не исключит упавший брокер и не переизберёт лидеров.
+
+### Шаг 5. Остановить стенд
+```bash
+scripts/stop-app.sh
+docker compose down -v --remove-orphans
+```
+Первая команда останавливает сервис, вторая удаляет контейнеры Kafka, их сеть и данные. Логи в `logs/exp1/` остаются.
+
+---
+
+## 4. Эксперимент 2: в кворуме 5 голосов, 2 из них выведены
+
+Проверяет гипотезу инцидента: выведенные серверы остались голосующими участниками кворума контроллеров.
+Кластер работает, пока живы все 3 настоящих узла (большинство 3 из 5). После падения одного из них живых
+голосов остаётся 2 из 5, большинства нет, и переизбирать лидеров становится некому.
+
+### Шаг 1. Поднять стенд
+```bash
+EXP=exp2 scripts/stand-up.sh
+```
+Если был запущен стенд exp1, он удалится автоматически, останавливать его заранее не нужно.
+
+Кроме строк из exp1, скрипт выводит состав кворума. В нём должно быть **5** голосов, из них 2 на
+несуществующих хостах `kafka-old-1` и `kafka-old-2`:
+```
+== кворум
+LeaderId:               N
+CurrentVoters:          [{"id": 1, ...}, {"id": 2, ...}, {"id": 3, ...},
+                         {"id": 4, ... "CONTROLLER://kafka-old-1:29093"}, {"id": 5, ... "CONTROLLER://kafka-old-2:29093"}]
+```
+
+### Шаг 2. Проверить, что всё работает
+```bash
+curl localhost:8080/api/v1/test
+EXP=exp2 scripts/snapshot.sh check
+```
+Ожидаемо: ответ `"status":"OK"`, лидеры и ISR как в exp1. В снимке видно, что координатор группы
+`…consumer-1-N` находится на `kafka1`, а группы `…consumer-2-N` — на `kafka2`.
+
+### Шаг 3. Запустить эксперимент
+```bash
+EXP=exp2 scripts/experiment.sh
+```
+Ход и длительность те же, что в exp1 (~6 минут).
+
+Пока брокер лежит, в соседнем терминале можно наблюдать отказ вживую:
+```bash
+tail -f logs/exp2/load/http.log                      # ответы эндпоинта: 503 вместо 200
+grep CONSUMED logs/exp2/app.log | tail -3            # последнее, что получили консюмеры: новых сообщений нет
+docker logs kafka2 2>&1 | grep "the leader is (none)" | tail -3   # контроллер не может выбрать лидера кворума
+```
+
+### Шаг 4. Посмотреть результат
+Сводка: `logs/exp2/experiment/summary.txt`. Ожидаемый результат:
+```
+PRODUCER topic_producer:   во время отказа все запросы → 503, простой ~3 минуты
+CONSUMER topic_consumer:   0 сообщений за время отказа, в логе сервиса — бесконечный поиск координатора группы
+CONSUMER topic_consumer_2: 0 сообщений за время отказа, но в логе сервиса ни одной ошибки от него
+```
+После возврата брокера всё восстанавливается за несколько секунд, а `topic_consumer_2` разом получает всё накопленное.
+
+`missing` у `topic_consumer` (~100+ сообщений) — это не потери консюмера. Нагрузочный продюсер не смог их
+записать и отбросил по таймауту, это видно в `logs/exp2/load/producer-topic_consumer.log`
+(`Expiring N record(s)`). Почему `topic_consumer_2` молчал без ошибок, разобрано в
+[EXPERIMENT-RESULTS.md](EXPERIMENT-RESULTS.md).
+
+### Шаг 5. Остановить стенд
+```bash
+scripts/stop-app.sh
+docker compose down -v --remove-orphans
+```
+
+---
+
+## 5. Где смотреть результаты
+
+Всё сохраняется в `logs/<профиль>/`:
+
+| Файл | Что внутри |
+|---|---|
+| `experiment/summary.txt` | **сводка**: отправлено и получено, потери, дубли, паузы, HTTP-коды по фазам, частые ошибки |
+| `experiment/events.log` | хронология: старт нагрузки, отказ, возврат брокера, снимки |
+| `snapshots/01-before.txt` … `05-after-recovery.txt` | лидеры, ISR, кворум, координаторы и лаг групп в разные моменты |
+| `app.log` | лог сервиса. Маркеры: `CONSUMED` — получено, `PRODUCED` — отправлено, `PRODUCE_FAILED` — ошибка отправки |
+| `load/sent-<топик>.log` | что отправила нагрузка (номер `seq` и время) |
+| `load/producer-<топик>.log` | ошибки нагрузочных продюсеров |
+| `load/http.log` | каждый запрос к `/api/v1/test`: время, HTTP-код, длительность |
+| `brokers/kafka1.log` … `kafka3.log` | логи брокеров (время в UTC) |
+| `groups.env` | id групп консюмеров, выбранные для этого стенда |
+
+Пересобрать сводку по уже собранным логам:
+```bash
+python3 scripts/analyze.py logs/exp2
+```
+
+**Повторный запуск.** Новый прогон того же профиля дописывает логи в тот же каталог, сводка при этом считается
+только по последнему прогону. Чтобы сохранить предыдущие результаты отдельно, переименуйте каталог перед запуском:
+```bash
+mv logs/exp2 logs/exp2-$(date +%Y%m%d-%H%M)
+```
+В `logs/exp1` и `logs/exp2` в репозитории лежат результаты исходных прогонов, на которые ссылается
+`EXPERIMENT-RESULTS.md`.
+
+---
+
+## 6. Ручной режим
+
+Если нужен свой сценарий, например другой брокер, другой способ отказа или наблюдение без ограничения по времени:
+
+```bash
+EXP=exp2 scripts/stand-up.sh                 # 1. поднять стенд
+EXP=exp2 DURATION=600 scripts/load.sh        # 2. нагрузка: до Ctrl+C, но не дольше 10 минут (в отдельном терминале)
+docker kill kafka1                           # 3. уронить брокер (или docker stop / docker pause kafka1)
+EXP=exp2 scripts/snapshot.sh manual-down     # 4. снимок состояния → logs/exp2/snapshots/manual-down.txt
+docker start kafka1                          # 5. вернуть брокер (после pause — docker unpause kafka1)
+scripts/stop-app.sh && docker compose down -v --remove-orphans   # 6. остановить всё
+```
+
+Параметры автоматического эксперимента меняются в профиле `experiments/<профиль>.env` или прямо в команде:
+```bash
+EXP=exp1 MODE=stop TARGET=kafka2 DOWN=60 scripts/experiment.sh
+```
+- `MODE=kill` — аварийное падение, по умолчанию;
+- `MODE=stop` — корректная остановка;
+- `MODE=pause` — заморозка процесса, ближе всего к «хост недоступен по сети».
+
+**Новый эксперимент.** Создайте `experiments/exp3.env` по образцу существующих (описание переменных — в
+[experiments/README.md](experiments/README.md)). При необходимости добавьте свой compose-оверрайд и
+`app/src/main/resources/application-exp3.yml` и запускайте с `EXP=exp3`.
+
+---
+
+## 7. Если что-то пошло не так
+
+| Симптом | Причина и решение |
+|---|---|
+| `не найден JDK 25+` | Установите JDK 25 или укажите путь: `JAVA_HOME=/path/to/jdk-25 EXP=exp1 scripts/stand-up.sh` |
+| `сборка сервиса не удалась` | Смотрите `logs/<профиль>/build.log`. Первая сборка требует интернета |
+| `port is already allocated` / сервис не стартует | Порт 8080 или 9092–9094 занят. Найдите процесс (`lsof -i :8080`) или остановите прошлый стенд (шаг 5) |
+| `stand-up.sh` долго висит после `Started` | Брокеры не стали healthy. Проверьте `docker compose ps` и `docker logs kafka1`. Частая причина — мало памяти у Docker |
+| `сервис не стал healthy за 60 секунд` | Смотрите `logs/<профиль>/app-stdout.log` |
+| после прерванного эксперимента `kafka1` не запущен | `docker start kafka1` или заново `EXP=… scripts/stand-up.sh` |
+| `неизвестный профиль эксперимента` | Значение `EXP` должно совпадать с именем файла в `experiments/` (`exp1`, `exp2`) |
+
+Полная очистка, если всё сломалось:
+```bash
+scripts/stop-app.sh; pkill -f scripts/load.sh; docker compose down -v --remove-orphans
 ```

@@ -7,20 +7,20 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 /**
- * Two independent consumers, each in its own consumer group (and therefore with its own group coordinator).
- * Every consumed record is logged with a stable "CONSUMED" marker so the experiment logs can be parsed.
+ * Два независимых консюмера, каждый в своей группе (и поэтому со своим координатором группы).
+ * Каждое полученное сообщение логируется с маркером "CONSUMED", по нему анализатор разбирает логи эксперимента.
  */
 @Component
 public class TestConsumers {
 
 	private static final Logger log = LoggerFactory.getLogger(TestConsumers.class);
 
-	@KafkaListener(id = "consumer-1", groupId = "kafka-test-service-consumer-1", topics = "${app.topics.consumer}")
+	@KafkaListener(id = "consumer-1", groupId = "${app.groups.consumer1}", topics = "${app.topics.consumer}")
 	public void consume(ConsumerRecord<String, String> record) {
 		logRecord(record);
 	}
 
-	@KafkaListener(id = "consumer-2", groupId = "kafka-test-service-consumer-2", topics = "${app.topics.consumer2}")
+	@KafkaListener(id = "consumer-2", groupId = "${app.groups.consumer2}", topics = "${app.topics.consumer2}")
 	public void consume2(ConsumerRecord<String, String> record) {
 		logRecord(record);
 	}

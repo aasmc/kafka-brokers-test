@@ -1,0 +1,50 @@
+[2026-10-06 16:30:54,040] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1: Name or service not known
+[2026-10-06 16:30:54,083] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:54,195] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:54,411] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:54,810] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:55,545] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:56,360] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:57,211] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:58,176] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+
+Error: Executing consumer group command failed due to org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeConsumerGroups(api=CONSUMER_GROUP_DESCRIBE)
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeConsumerGroups(api=CONSUMER_GROUP_DESCRIBE)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeConsumerGroups(api=CONSUMER_GROUP_DESCRIBE)
+[2026-10-06 16:30:59,607] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1: Name or service not known
+[2026-10-06 16:30:59,643] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:59,731] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:30:59,906] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:31:00,264] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:31:01,072] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:31:01,978] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:31:02,891] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+[2026-10-06 16:31:03,826] WARN [AdminClient clientId=adminclient-1] Error connecting to node kafka1:29092 (id: 1 rack: null) (org.apache.kafka.clients.NetworkClient)
+java.net.UnknownHostException: kafka1
+
+Error: Executing consumer group command failed due to org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeConsumerGroups(api=CONSUMER_GROUP_DESCRIBE)
+java.util.concurrent.ExecutionException: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeConsumerGroups(api=CONSUMER_GROUP_DESCRIBE)
+Caused by: org.apache.kafka.common.errors.TimeoutException: Timed out waiting for a node assignment. Call: describeConsumerGroups(api=CONSUMER_GROUP_DESCRIBE)
+
+GROUP                     COORDINATOR (ID)          ASSIGNMENT-STRATEGY  STATE           #MEMBERS
+kafka-test-service-consumer-2-1 kafka2:29092  (2)         range                Stable          1
+
+GROUP                           TOPIC            PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID                                                                     HOST            CLIENT-ID
+kafka-test-service-consumer-2-1 topic_consumer_2 0          58              58              0               consumer-kafka-test-service-consumer-2-1-1-82d7563b-5d05-4ef6-81ac-b12fcba6761f /172.20.0.1     consumer-kafka-test-service-consumer-2-1-1

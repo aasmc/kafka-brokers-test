@@ -1,0 +1,435 @@
+[2026-10-06 16:30:06,077] WARN [Producer clientId=console-producer] Got error produce response with correlation id 68 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:07,579] WARN [Producer clientId=console-producer] Got error produce response with correlation id 69 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:07,698] WARN [Producer clientId=console-producer] Got error produce response with correlation id 70 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:07,699] WARN [Producer clientId=console-producer] Got error produce response with correlation id 71 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:09,426] WARN [Producer clientId=console-producer] Got error produce response with correlation id 74 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:11,346] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:12,911] WARN [Producer clientId=console-producer] Got error produce response with correlation id 80 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:14,641] WARN [Producer clientId=console-producer] Got error produce response with correlation id 83 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:16,593] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:18,156] WARN [Producer clientId=console-producer] Got error produce response with correlation id 89 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:18,156] WARN [Producer clientId=console-producer] Got error produce response with correlation id 90 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:18,157] WARN [Producer clientId=console-producer] Got error produce response with correlation id 91 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:18,157] WARN [Producer clientId=console-producer] Got error produce response with correlation id 92 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:19,887] WARN [Producer clientId=console-producer] Got error produce response with correlation id 95 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:21,853] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:23,400] WARN [Producer clientId=console-producer] Got error produce response with correlation id 101 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:25,120] WARN [Producer clientId=console-producer] Got error produce response with correlation id 104 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:27,103] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:28,657] WARN [Producer clientId=console-producer] Got error produce response with correlation id 110 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:30,391] WARN [Producer clientId=console-producer] Got error produce response with correlation id 113 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:32,290] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:33,852] WARN [Producer clientId=console-producer] Got error produce response with correlation id 119 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:33,852] WARN [Producer clientId=console-producer] Got error produce response with correlation id 120 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:33,852] WARN [Producer clientId=console-producer] Got error produce response with correlation id 121 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:33,853] WARN [Producer clientId=console-producer] Got error produce response with correlation id 122 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:35,579] WARN [Producer clientId=console-producer] Got error produce response with correlation id 125 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:37,531] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:39,094] WARN [Producer clientId=console-producer] Got error produce response with correlation id 131 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:40,836] WARN [Producer clientId=console-producer] Got error produce response with correlation id 134 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:42,810] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:44,366] WARN [Producer clientId=console-producer] Got error produce response with correlation id 140 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:46,090] WARN [Producer clientId=console-producer] Got error produce response with correlation id 143 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:48,073] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:49,630] WARN [Producer clientId=console-producer] Got error produce response with correlation id 149 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:49,630] WARN [Producer clientId=console-producer] Got error produce response with correlation id 150 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:49,630] WARN [Producer clientId=console-producer] Got error produce response with correlation id 151 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:51,369] WARN [Producer clientId=console-producer] Got error produce response with correlation id 154 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:53,256] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:54,817] WARN [Producer clientId=console-producer] Got error produce response with correlation id 160 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:56,532] WARN [Producer clientId=console-producer] Got error produce response with correlation id 163 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:58,430] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,430] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,430] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,431] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,432] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,432] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,432] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,432] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,432] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,432] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,432] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,433] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 51 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,433] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:58,434] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:30:59,986] WARN [Producer clientId=console-producer] Got error produce response with correlation id 169 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:59,986] WARN [Producer clientId=console-producer] Got error produce response with correlation id 170 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:30:59,986] WARN [Producer clientId=console-producer] Got error produce response with correlation id 171 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:01,719] WARN [Producer clientId=console-producer] Got error produce response with correlation id 174 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:03,679] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:05,235] WARN [Producer clientId=console-producer] Got error produce response with correlation id 180 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:06,956] WARN [Producer clientId=console-producer] Got error produce response with correlation id 183 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:08,870] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:10,426] WARN [Producer clientId=console-producer] Got error produce response with correlation id 189 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:10,426] WARN [Producer clientId=console-producer] Got error produce response with correlation id 190 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:10,427] WARN [Producer clientId=console-producer] Got error produce response with correlation id 191 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:12,141] WARN [Producer clientId=console-producer] Got error produce response with correlation id 194 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:14,121] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:15,672] WARN [Producer clientId=console-producer] Got error produce response with correlation id 200 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:17,376] WARN [Producer clientId=console-producer] Got error produce response with correlation id 203 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:19,322] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:20,889] WARN [Producer clientId=console-producer] Got error produce response with correlation id 209 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:20,889] WARN [Producer clientId=console-producer] Got error produce response with correlation id 210 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:20,889] WARN [Producer clientId=console-producer] Got error produce response with correlation id 211 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:22,615] WARN [Producer clientId=console-producer] Got error produce response with correlation id 214 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:24,570] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:26,123] WARN [Producer clientId=console-producer] Got error produce response with correlation id 220 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:27,847] WARN [Producer clientId=console-producer] Got error produce response with correlation id 223 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:29,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:31,286] WARN [Producer clientId=console-producer] Got error produce response with correlation id 229 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:31,287] WARN [Producer clientId=console-producer] Got error produce response with correlation id 230 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:31,287] WARN [Producer clientId=console-producer] Got error produce response with correlation id 231 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:33,020] WARN [Producer clientId=console-producer] Got error produce response with correlation id 234 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:34,926] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:36,478] WARN [Producer clientId=console-producer] Got error produce response with correlation id 240 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:38,201] WARN [Producer clientId=console-producer] Got error produce response with correlation id 243 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:40,122] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:41,673] WARN [Producer clientId=console-producer] Got error produce response with correlation id 249 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:41,673] WARN [Producer clientId=console-producer] Got error produce response with correlation id 250 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:41,674] WARN [Producer clientId=console-producer] Got error produce response with correlation id 251 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:43,379] WARN [Producer clientId=console-producer] Got error produce response with correlation id 254 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:45,305] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:46,867] WARN [Producer clientId=console-producer] Got error produce response with correlation id 260 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:48,584] WARN [Producer clientId=console-producer] Got error produce response with correlation id 263 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:50,468] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:52,026] WARN [Producer clientId=console-producer] Got error produce response with correlation id 269 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:52,067] WARN [Producer clientId=console-producer] Got error produce response with correlation id 270 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:52,067] WARN [Producer clientId=console-producer] Got error produce response with correlation id 271 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:53,717] WARN [Producer clientId=console-producer] Got error produce response with correlation id 274 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:55,676] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:31:57,230] WARN [Producer clientId=console-producer] Got error produce response with correlation id 280 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:31:58,970] WARN [Producer clientId=console-producer] Got error produce response with correlation id 283 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:00,930] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:02,489] WARN [Producer clientId=console-producer] Got error produce response with correlation id 289 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:02,489] WARN [Producer clientId=console-producer] Got error produce response with correlation id 290 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:02,490] WARN [Producer clientId=console-producer] Got error produce response with correlation id 291 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:02,490] WARN [Producer clientId=console-producer] Got error produce response with correlation id 292 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:04,207] WARN [Producer clientId=console-producer] Got error produce response with correlation id 295 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:06,153] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:07,717] WARN [Producer clientId=console-producer] Got error produce response with correlation id 301 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:09,432] WARN [Producer clientId=console-producer] Got error produce response with correlation id 304 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:11,360] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:12,920] WARN [Producer clientId=console-producer] Got error produce response with correlation id 310 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:14,658] WARN [Producer clientId=console-producer] Got error produce response with correlation id 313 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:16,642] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:18,193] WARN [Producer clientId=console-producer] Got error produce response with correlation id 319 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:18,194] WARN [Producer clientId=console-producer] Got error produce response with correlation id 320 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:18,194] WARN [Producer clientId=console-producer] Got error produce response with correlation id 321 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:18,194] WARN [Producer clientId=console-producer] Got error produce response with correlation id 322 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:19,921] WARN [Producer clientId=console-producer] Got error produce response with correlation id 325 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:21,868] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:23,429] WARN [Producer clientId=console-producer] Got error produce response with correlation id 331 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:25,144] WARN [Producer clientId=console-producer] Got error produce response with correlation id 334 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:27,091] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:28,657] WARN [Producer clientId=console-producer] Got error produce response with correlation id 340 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:30,390] WARN [Producer clientId=console-producer] Got error produce response with correlation id 343 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:32,375] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:33,936] WARN [Producer clientId=console-producer] Got error produce response with correlation id 349 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:33,936] WARN [Producer clientId=console-producer] Got error produce response with correlation id 350 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:33,936] WARN [Producer clientId=console-producer] Got error produce response with correlation id 351 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:35,668] WARN [Producer clientId=console-producer] Got error produce response with correlation id 354 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:37,636] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:39,204] WARN [Producer clientId=console-producer] Got error produce response with correlation id 360 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:40,908] WARN [Producer clientId=console-producer] Got error produce response with correlation id 363 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:42,862] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:44,419] WARN [Producer clientId=console-producer] Got error produce response with correlation id 369 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:44,419] WARN [Producer clientId=console-producer] Got error produce response with correlation id 370 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:44,420] WARN [Producer clientId=console-producer] Got error produce response with correlation id 371 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:46,167] WARN [Producer clientId=console-producer] Got error produce response with correlation id 374 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:48,093] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:49,648] WARN [Producer clientId=console-producer] Got error produce response with correlation id 380 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:51,364] WARN [Producer clientId=console-producer] Got error produce response with correlation id 383 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:53,284] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:32:54,840] WARN [Producer clientId=console-producer] Got error produce response with correlation id 389 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:54,840] WARN [Producer clientId=console-producer] Got error produce response with correlation id 390 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:54,840] WARN [Producer clientId=console-producer] Got error produce response with correlation id 391 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:56,567] WARN [Producer clientId=console-producer] Got error produce response with correlation id 394 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:32:58,525] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:00,080] WARN [Producer clientId=console-producer] Got error produce response with correlation id 400 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:33:01,829] WARN [Producer clientId=console-producer] Got error produce response with correlation id 403 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:03,730] ERROR Error when sending message to topic topic_consumer_2 with key: null, value: 52 bytes with error: (org.apache.kafka.clients.producer.internals.ErrorLoggingCallback)
+org.apache.kafka.common.errors.TimeoutException: Disconnected from node 2 due to timeout
+[2026-10-06 16:33:05,286] WARN [Producer clientId=console-producer] Got error produce response with correlation id 409 on topic-partition topic_consumer_2-0, retrying (1 attempts left). Error: REQUEST_TIMED_OUT (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:33:05,286] WARN [Producer clientId=console-producer] Got error produce response with correlation id 410 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:33:05,287] WARN [Producer clientId=console-producer] Got error produce response with correlation id 411 on topic-partition topic_consumer_2-0, retrying (2 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
+[2026-10-06 16:33:07,027] WARN [Producer clientId=console-producer] Got error produce response with correlation id 414 on topic-partition topic_consumer_2-0, retrying (0 attempts left). Error: REQUEST_TIMED_OUT. Error Message: Disconnected from node 2 due to timeout (org.apache.kafka.clients.producer.internals.Sender)
